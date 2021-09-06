@@ -13,7 +13,7 @@ const aadharData = [
       state: "up",
     },
     hasDrivingLicense: false,
-    emails: ["abc@outlook.com", "efg@gamil.com", "ghj@gmail.com"],
+    emails: ["abc@outlook.com", "efg@gmail.com", "ghj@gmail.com"],
   },
   {
     firstName: "Siddarth",
@@ -104,6 +104,21 @@ const result = aadharData.reduce((acc, curr) => {
   return acc;
 }, []);
 console.log(result);
+
+
+const gmail = aadharData.reduce((acc, curr) => {
+  if (curr.emails) {
+    const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
+    emails.length &&
+      acc.push({
+        // fullname: `${curr.firstName} ${curr.lastName}`,
+        emails, count: emails.length
+      });
+  }
+  return acc;
+}, []);
+console.log(gmail);
+  
 
 /**
  * requirement one
