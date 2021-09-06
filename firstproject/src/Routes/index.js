@@ -119,7 +119,18 @@ const gmail = aadharData.reduce((acc, curr) => {
 }, []);
 console.log(gmail);
   
-
+const state = aadharData.reduce((acc, curr) => {
+  if (curr.emails) {
+    const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
+    emails.length &&
+      acc.push({
+        // fullname: `${curr.firstName} ${curr.lastName}`,
+        emails, count: emails.length
+      });
+  }
+  return acc;
+}, []);
+console.log(state);
 /**
  * requirement one
  * an object containing the fullname and list of gmail ids
@@ -180,4 +191,20 @@ console.log(gmail);
  * an array of array of even numbers
  */
 
+const arr = [1,2,3,4]
+ //find the sum of all numbers of this array using reduce method
+ 
+const secondArray = [[0, 1], [2, 3], [4, 5]]
+//  flatten the above array using reduce
+let sum = arr.reduce((a, b) =>  a + b ,0)
+console.log(sum)
+ let flatarray = secondArray.reduce(
+  function(previousValue, currentValue) {
+    return previousValue.concat(currentValue)
+  },
+  []
+)
+
+console.log(flatarray)
+// flattened is [0, 1, 2, 3, 4, 5]
 module.exports = router;
