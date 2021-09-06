@@ -91,6 +91,20 @@ console.log(gmailList);
   // res.send(gmailList);
 // });
 
+
+// const result = aadharData.reduce((acc, curr) => {
+//   if (curr.emails) {
+//     const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
+//     emails.length &&
+//       acc.push({
+//         fullname: `${curr.firstName} ${curr.lastName}`,
+//         emails,
+//       });
+//   }
+//   return acc;
+// }, []);
+
+
 /**
  * requirement one
  * an object containing the fullname and list of gmail ids
