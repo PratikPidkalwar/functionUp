@@ -124,7 +124,6 @@ console.log(result);
  * fullname of the person who belongs to haryana and has at least one gmail id
  */
 
-// let nearr = [{name:["jay sardar", "sabiha khan", "nihar sayyad"]}]
 
 // let filterName = (arr, name)=>arr.filter(el=>el.name.some(x=> x.includes(name)))
 
