@@ -127,13 +127,15 @@ console.log(gmail);
 let uniquestates = aadharData.reduce((acc, curr) => {
   if (acc.includes(curr.address.state) ==false) {
         acc.push(
-        `${curr.address.state}`, 
+        curr.address.state 
       )
   }
   return acc;
 }, []);
+console.log("Uniquestate",uniquestates);
 
 uniquestates = [{states: [uniquestates], count: uniquestates.length}]
+
 console.log("Uniquestate",uniquestates);
 
 
@@ -167,15 +169,19 @@ console.log("state and person",stateAndPerosn);
 
 // console.log(Object.values(aadharData[0].emails))
 
-// const practiceData = [
-//   [1, 2, 3, 4],
-//   [3, 4, 5, 6],
-//   [5, 6, 7, 8],
-//   [7, 8, 9, 10],
-//   [9, 10, 11, 12],
-// ];
+const practiceData = [
+  [1, 2, 3, 4],
+  [3, 4, 5, 6],
+  [5, 6, 7, 8],
+  [7, 8, 9, 10],
+  [9, 10, 11, 12],
+];
 // const newarr = practiceData.map((arr) => arr.map((n) => n + 1));
 // console.log(newarr);
+
+const evanarray = practiceData.map((arr) => arr.filter(x => x%2==0))
+console.log("even array",evanarray);
+
 
 // const evenarr = practiceData.map((arr) =>
 //   arr.filter((x) => {
@@ -201,7 +207,7 @@ console.log("state and person",stateAndPerosn);
 const arr = [1,2,3,4]
  //find the sum of all numbers of this array using reduce method
 let sum = arr.reduce((a, b) =>  a + b ,0)
-console.log(sum) 
+console.log("sum",sum) 
 
 const secondArray = [[0, 1], [2, 3], [4, 5]]
 //  flatten the above array using reduce
@@ -213,5 +219,5 @@ let flatarray = secondArray.reduce(
   },
   []
 )
-console.log(flatarray)
+console.log("flatarray",flatarray)
 module.exports = router;
