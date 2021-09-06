@@ -59,24 +59,24 @@ const aadharData = [
 // router.get("/listgmail", function (req, res) {
   // let gmail = aadharData.emails.indexOf(mail=> mail.endsWith("gmail.com"))
   // console.log(aadharData.emails.)
-  let gmailList = [];
-  aadharData.forEach((info) => {
-    if (info.emails) {
-      let fullname = info.firstName + " " + info.lastName;
-      let email = info.emails;
-      gmailList.push({ fullname, email });
-    }
-  });
+  // let gmailList = [];
+  // aadharData.forEach((info) => {
+  //   if (info.emails) {
+  //     let fullname = info.firstName + " " + info.lastName;
+  //     let email = info.emails;
+  //     gmailList.push({ fullname, email });
+  //   }
+  // });
 
 
-  let elist = [];
-  aadharData.forEach((info) => {
-    if (info.emails) {
-      let fullname = info.firstName + " " + info.lastName;
-      let email = info.emails;
-      elist.push({ fullname, email });
-    }
-  });
+  // let elist = [];
+  // aadharData.forEach((info) => {
+  //   if (info.emails) {
+  //     let fullname = info.firstName + " " + info.lastName;
+  //     let email = info.emails;
+  //     elist.push({ fullname, email });
+  //   }
+  // });
 
 // console.log(gmailList);
 
@@ -122,15 +122,16 @@ console.log(gmail);
 const state = aadharData.reduce((acc, curr) => {
   if (curr.emails) {
     const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
-    emails.length &&
-      acc.push({
-        // fullname: `${curr.firstName} ${curr.lastName}`,
-        emails, count: emails.length
-      });
+      if(curr.address.state == 'haryana'){
+        acc.push({
+        fullname: `${curr.firstName} ${curr.lastName}`,
+        emails, count: emails.length}
+        )};
   }
   return acc;
 }, []);
-console.log(state);
+
+console.log("state",state);
 /**
  * requirement one
  * an object containing the fullname and list of gmail ids
@@ -163,10 +164,8 @@ console.log(state);
 //   [7, 8, 9, 10],
 //   [9, 10, 11, 12],
 // ];
-
 // const newarr = practiceData.map((arr) => arr.map((n) => n + 1));
 // console.log(newarr);
-
 // const evenarr = practiceData.map((arr) =>
 //   arr.filter((x) => {
 //     if (x % 2 == 0) {
@@ -179,8 +178,6 @@ console.log(state);
 // console.log(evenarr);
 
 //  }))
-
-
 /**
  * requirement one
  * increment each number by one and output the resultant array,
@@ -190,21 +187,20 @@ console.log(state);
  * requirement two
  * an array of array of even numbers
  */
-
 const arr = [1,2,3,4]
  //find the sum of all numbers of this array using reduce method
- 
+let sum = arr.reduce((a, b) =>  a + b ,0)
+console.log(sum) 
+
 const secondArray = [[0, 1], [2, 3], [4, 5]]
 //  flatten the above array using reduce
-let sum = arr.reduce((a, b) =>  a + b ,0)
-console.log(sum)
- let flatarray = secondArray.reduce(
+// flattened is [0, 1, 2, 3, 4, 5]
+
+let flatarray = secondArray.reduce(
   function(previousValue, currentValue) {
     return previousValue.concat(currentValue)
   },
   []
 )
-
 console.log(flatarray)
-// flattened is [0, 1, 2, 3, 4, 5]
 module.exports = router;
