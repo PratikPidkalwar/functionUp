@@ -78,32 +78,32 @@ const aadharData = [
     }
   });
 
-console.log(gmailList);
+// console.log(gmailList);
 
-  const result = gmailList.map((o) => ({
-    fullname: `${o.fullname}`,
-    emails: o.emails.filter((e) => e.match(/gmail.com$/)),
-  }));
+//   const result = gmailList.map((o) => ({
+//     fullname: `${o.fullname}`,
+//     emails: o.emails.filter((e) => e.match(/gmail.com$/)),
+//   }));
   
-  console.log(result);
+//   console.log(result);
   
 
   // res.send(gmailList);
 // });
 
 
-// const result = aadharData.reduce((acc, curr) => {
-//   if (curr.emails) {
-//     const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
-//     emails.length &&
-//       acc.push({
-//         fullname: `${curr.firstName} ${curr.lastName}`,
-//         emails,
-//       });
-//   }
-//   return acc;
-// }, []);
-
+const result = aadharData.reduce((acc, curr) => {
+  if (curr.emails) {
+    const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
+    emails.length &&
+      acc.push({
+        fullname: `${curr.firstName} ${curr.lastName}`,
+        emails,
+      });
+  }
+  return acc;
+}, []);
+console.log(result);
 
 /**
  * requirement one
