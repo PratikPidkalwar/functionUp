@@ -99,6 +99,7 @@ const result = aadharData.reduce((acc, curr) => {
       acc.push({
         fullname: `${curr.firstName} ${curr.lastName}`,
         emails,
+        count: emails.length
       });
   }
   return acc;
