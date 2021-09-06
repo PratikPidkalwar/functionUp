@@ -56,7 +56,6 @@ const aadharData = [
   },
 ];
 
-// router.get("/listgmail", function (req, res) {
   // let gmail = aadharData.emails.indexOf(mail=> mail.endsWith("gmail.com"))
   // console.log(aadharData.emails.)
   // let gmailList = [];
@@ -67,8 +66,6 @@ const aadharData = [
   //     gmailList.push({ fullname, email });
   //   }
   // });
-
-
   // let elist = [];
   // aadharData.forEach((info) => {
   //   if (info.emails) {
@@ -77,20 +74,20 @@ const aadharData = [
   //     elist.push({ fullname, email });
   //   }
   // });
-
 // console.log(gmailList);
 
 //   const result = gmailList.map((o) => ({
 //     fullname: `${o.fullname}`,
 //     emails: o.emails.filter((e) => e.match(/gmail.com$/)),
 //   }));
-  
 //   console.log(result);
-  
-
-  // res.send(gmailList);
 // });
 
+// /**
+//  * requirement one
+//  * an object containing the fullname and list of gmail ids
+//  * i.e. {fullname: 'list of gmail ids'}
+//  *
 
 const result = aadharData.reduce((acc, curr) => {
   if (curr.emails) {
@@ -106,49 +103,60 @@ const result = aadharData.reduce((acc, curr) => {
 console.log(result);
 
 
+// *
+// * requirement two
+// * list of all gmail ids and its count
+// *
+
 const gmail = aadharData.reduce((acc, curr) => {
   if (curr.emails) {
     const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
     emails.length &&
       acc.push({
-        // fullname: `${curr.firstName} ${curr.lastName}`,
         emails, count: emails.length
       });
   }
   return acc;
 }, []);
 console.log(gmail);
-  
-const state = aadharData.reduce((acc, curr) => {
+
+// * requirement three
+// * list of all unique states and their count
+// *
+const uniquestates = aadharData.reduce((acc, curr) => {
+  if (acc.includes(curr.address.state)) {
+        acc.push({
+        state: `${curr.address.state}`,
+         count: state.length})
+  }
+  return acc;
+}, []);
+
+console.log("Uniquestate",uniquestates);
+
+
+// * requirement four
+// * fullname of the person who belongs to haryana and has at least one gmail id
+// */
+
+const stateAndPerosn = aadharData.reduce((acc, curr) => {
   if (curr.emails) {
     const emails = curr.emails.filter((e) => e.match(/gmail.com$/));
       if(curr.address.state == 'haryana'){
         acc.push({
         fullname: `${curr.firstName} ${curr.lastName}`,
-        emails, count: emails.length}
+        emails}
         )};
   }
   return acc;
 }, []);
 
-console.log("state",state);
-/**
- * requirement one
- * an object containing the fullname and list of gmail ids
- * i.e. {fullname: 'list of gmail ids'}
- *
- *
- * requirement two
- * list of all gmail ids and its count
- *
- *
- * requirement three
- * list of all unique states and their count
- *
- *
- * requirement four
- * fullname of the person who belongs to haryana and has at least one gmail id
- */
+
+console.log("state and person",stateAndPerosn);
+
+
+
+
 
 
 // let filterName = (arr, name)=>arr.filter(el=>el.name.some(x=> x.includes(name)))
