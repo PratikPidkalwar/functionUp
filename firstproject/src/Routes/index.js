@@ -100,6 +100,7 @@ const result = aadharData.reduce((acc, curr) => {
   }
   return acc;
 }, []);
+
 console.log(result);
 
 
@@ -123,15 +124,16 @@ console.log(gmail);
 // * requirement three
 // * list of all unique states and their count
 // *
-const uniquestates = aadharData.reduce((acc, curr) => {
-  if (acc.includes(curr.address.state)) {
-        acc.push({
-        state: `${curr.address.state}`,
-         count: state.length})
+let uniquestates = aadharData.reduce((acc, curr) => {
+  if (acc.includes(curr.address.state) ==false) {
+        acc.push(
+        `${curr.address.state}`, 
+      )
   }
   return acc;
 }, []);
 
+uniquestates = [{states: [uniquestates], count: uniquestates.length}]
 console.log("Uniquestate",uniquestates);
 
 
@@ -174,6 +176,7 @@ console.log("state and person",stateAndPerosn);
 // ];
 // const newarr = practiceData.map((arr) => arr.map((n) => n + 1));
 // console.log(newarr);
+
 // const evenarr = practiceData.map((arr) =>
 //   arr.filter((x) => {
 //     if (x % 2 == 0) {
@@ -190,11 +193,11 @@ console.log("state and person",stateAndPerosn);
  * requirement one
  * increment each number by one and output the resultant array,
  * (keep the same structure as that of the input array)
- *
- *
+
  * requirement two
  * an array of array of even numbers
  */
+
 const arr = [1,2,3,4]
  //find the sum of all numbers of this array using reduce method
 let sum = arr.reduce((a, b) =>  a + b ,0)
